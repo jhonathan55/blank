@@ -1,0 +1,47 @@
+<app-header title="Productos"></app-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Título de la página -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+ <!-- Botón para abrir el formulario -->
+ <ion-button (click)="mostrarFormulario()">Agregar Producto</ion-button>
+
+ <!-- Formulario para crear un nuevo producto -->
+ <ion-card *ngIf="mostrarForm">
+   <ion-card-content>
+     <ion-item>
+       <ion-label position="floating">Nombre</ion-label>
+       <ion-input formControlName="name"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label position="floating">Descripción</ion-label>
+       <ion-input formControlName="description"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label position="floating">Precio</ion-label>
+       <ion-input formControlName="price"></ion-input>
+     </ion-item>
+     <ion-button (click)="crearProducto()">Guardar</ion-button>
+   </ion-card-content>
+ </ion-card>
+
+  <!-- Lista de productos -->
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <ion-thumbnail slot="start">
+        <!-- <img [src]="product.imageUrl" alt="Imagen del producto"> -->
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Precio: ${{ product.price }}</p>
+      </ion-label>
+      <ion-button slot="end" (click)="verDetalle(product._id)">Ver Detalle</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -28,6 +28,11 @@ export class HomePage {
       name: 'Avatar',
       redirecTo: '/avatar'
     },
+    {
+      icon: 'radio-button-on-outline',
+      name: 'Buttons',
+      redirecTo: '/buttons'
+    }
   ];
   constructor() { }
 

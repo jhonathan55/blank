@@ -3,21 +3,43 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: 'alert',
-    loadChildren: () => import('./page/alert/alert.module').then( m => m.AlertPageModule)
-  },
-  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'auth',
     pathMatch: 'full'
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./page/auth/auth.module').then(m => m.AuthPageModule)
+  },
+
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+  },
+  {
+    path: 'alert',
+    loadChildren: () => import('./page/alert/alert.module').then(m => m.AlertPageModule)
+  },
+  
+  {
     path: 'action-sheet',
-    loadChildren: () => import('./page/action-sheet/action-sheet.module').then( m => m.ActionSheetPageModule)
+    loadChildren: () => import('./page/action-sheet/action-sheet.module').then(m => m.ActionSheetPageModule)
+  },
+  {
+    path: 'avatar',
+    loadChildren: () => import('./page/avatar/avatar.module').then(m => m.AvatarPageModule)
+  },
+  {
+    path: 'buttons',
+    loadChildren: () => import('./page/buttons/buttons.module').then(m => m.ButtonsPageModule)
+  },
+  {
+    path: 'product',
+    loadChildren: () => import('./page/product/product.module').then(m => m.ProductPageModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./page/auth/auth.module').then(m => m.AuthPageModule)
   },
 ];
 

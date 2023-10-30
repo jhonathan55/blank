@@ -1,5 +1,9 @@
 <app-header title="alerta"></app-header>
 <ion-content [fullscreen]="true">
-    <h2 class="title">Content</h2>
-<p class="ion-padding">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, commodi quo? Tempora aut dolores omnis odit vero excepturi suscipit est, ipsam magni placeat laudantium, quia enim cupiditate vel repudiandae sed.</p>
+    <h2 class="title">Alert</h2>
+    <ion-button (click)="presentAlert()">Click Me</ion-button>
+    <br>
+    <ion-button id="present-alert">Click Me</ion-button>
+    <ion-alert trigger="present-alert" header="Please enter your info" [buttons]="alertButtons"
+        [inputs]="alertInputs"></ion-alert>
 </ion-content>

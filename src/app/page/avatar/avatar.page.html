@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>avatar</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-avatar slot="end">
+        <ion-img src="../../../assets/avatar.webp" class="avatar"></ion-img>
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-chip color="primary">
+    <ion-avatar>
+      <ion-img src="../../../assets/avatar.webp"></ion-img>
+    </ion-avatar>
+    <ion-label>Avatar Chip</ion-label>
+  </ion-chip>
+
+  <ion-list>
+    <ion-item *ngFor="let item of [1,2,3,4]">
+      <ion-avatar slot="end">
+        <ion-img src="../../../assets/avatar.webp"></ion-img>
+      </ion-avatar>
+      <ion-label>Avatar Item</ion-label>
+    </ion-item>
+   
+  </ion-list>
+
+</ion-content>
