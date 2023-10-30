@@ -1,4 +1,8 @@
-<app-header></app-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Auth</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-grid>
@@ -22,7 +26,6 @@
                 *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
                 Email es requerido
               </ion-note>
-
               <ion-item>
                 <ion-label position="floating">Ingresa tu password</ion-label>
                 <ion-input formControlName="password" [type]="hide ? 'password': 'text'"></ion-input>
@@ -32,12 +35,8 @@
                 *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
                 Password es requerido
               </ion-note>
-             
-                <ion-button expand="block" [disabled]="loginForm.invalid" type="submit" class="my-3">Login</ion-button>
-                <ion-button expand="block" color="tertiary" routerLink='../register'>Registrarse</ion-button>
-            
-
-
+              <ion-button expand="block" [disabled]="loginForm.invalid" type="submit" class="my-3">Login</ion-button>
+              <ion-button expand="block" color="tertiary" routerLink='../register'>Registrarse</ion-button>
             </form>
           </ion-card-content>
         </ion-card>

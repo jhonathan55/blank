@@ -1,8 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, NgZone, OnInit, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { UserI } from './user';
 import { Subscription, tap } from 'rxjs';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-auth',
@@ -13,6 +15,9 @@ export class AuthPage implements OnInit {
 
   private _fb = inject(FormBuilder)
   private _authSvc = inject(AuthService)
+  private _router = inject(Router)
+  // private _navCtrl=inject(NavController)
+  // private _zone=inject(NgZone)
   private subscription: Subscription = new Subscription();
   hide = true;
   private isValidEmail = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
@@ -20,7 +25,7 @@ export class AuthPage implements OnInit {
     throw new Error('Method not implemented.');
   }
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    this.subscription.unsubscribe();
   }
   // Validators.pattern(this.isValidEmail)
   loginForm = this._fb.group({
@@ -38,6 +43,7 @@ export class AuthPage implements OnInit {
       this._authSvc.login(user).pipe(
         tap((res) => {
           console.log(res);
+         this._router.navigate(['crm/action-sheet']);
         })
       ).subscribe()
     )

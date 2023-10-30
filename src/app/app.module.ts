@@ -7,9 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 //forms
 import {  ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { CrmComponent } from './components/crm/crm.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CrmComponent
   ],
   imports: [
     BrowserModule,

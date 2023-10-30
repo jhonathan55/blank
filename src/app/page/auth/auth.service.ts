@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { UserI, UserResponseI } from './user';
 import { tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class AuthService {
 
   private readonly TOKEN = 'token';
   private _http=inject(HttpClient)
+  private _router=inject(Router)
   constructor() { }
 
   login(user:UserI){
